@@ -21,7 +21,7 @@ const renderizarEvento = ({ item }: RenderizarEventoProps) => (
       <View style={styles.rodapeCard}>
         <Text style={styles.precoTexto}>{item.preco}</Text>
         <TouchableOpacity style={styles.botaoComprar}>
-          <FontAwesome name="shopping-cart" size={24} color="white" />
+          <FontAwesome name="shopping-cart" size={24} color="black" />
           <Text style={styles.textoBotao}>Comprar</Text>
         </TouchableOpacity>
       </View>
@@ -38,7 +38,7 @@ export default function HomeScreen() {
         <TextInput 
           style={styles.inputBusca}
           placeholder="Buscar eventos, shows, cursos..."
-          placeholderTextColor="#999"
+          placeholderTextColor="#000000"
         />
       </View>
 
@@ -58,18 +58,18 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F7FA',
+    backgroundColor: '#000000',
   },
   header: {
     padding: 20,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#000000',
     borderBottomWidth: 1,
-    borderBottomColor: '#EAEAEA',
+    borderBottomColor: '#ffffff',
   },
   headerTitulo: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#1A1A1A',
+    color: '#ffffff',
     marginBottom: 15,
   },
   inputBusca: {
@@ -78,14 +78,14 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 8,
     fontSize: 16,
-    color: '#333',
+    color: '#ffffff',
   },
   listaContainer: {
     padding: 20,
     paddingBottom: 40,
   },
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#000000',
     borderRadius: 12,
     marginBottom: 20,
     overflow: 'hidden', // Garante que a imagem não "vaze" pelos cantos arredondados
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   dataTexto: {
-    color: '#FF5A5F', // Cor de destaque típica de apps de ingressos
+    color: '#e13f45', 
     fontWeight: '700',
     fontSize: 14,
     marginBottom: 5,
@@ -112,12 +112,12 @@ const styles = StyleSheet.create({
   tituloTexto: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#222222',
+    color: '#ffffff',
     marginBottom: 8,
   },
   localTexto: {
     fontSize: 14,
-    color: '#666666',
+    color: '#ffffff',
     marginBottom: 15,
   },
   rodapeCard: {
@@ -126,16 +126,16 @@ const styles = StyleSheet.create({
     alignItems: 'center', // Centraliza verticalmente
     marginTop: 5,
     borderTopWidth: 1,
-    borderTopColor: '#F0F0F0',
+    borderTopColor: '#ffffff',
     paddingTop: 15,
   },
   precoTexto: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#333333',
+    color: '#ffffff',
   },
   botaoComprar: {
-    backgroundColor: '#0066FF',
+    backgroundColor: '#ffffff',
     paddingVertical: 8,
     paddingHorizontal: 20,
     borderRadius: 6,
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     gap: 12
   },
   textoBotao: {
-    color: '#FFFFFF',
+    color: '#000000',
     fontWeight: 'bold',
     fontSize: 14,
   },

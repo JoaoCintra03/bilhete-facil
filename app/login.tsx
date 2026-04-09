@@ -30,7 +30,7 @@ export default function LoginScreen() {
                 <Ionicons 
                     name="apps-outline" 
                     size={64} 
-                    color={"#007AFF"}
+                    color={"#ffffff"}
                     style={styles.logo} 
                 />
                 <Text style={styles.title}>Acesse sua conta</Text>
@@ -39,6 +39,7 @@ export default function LoginScreen() {
                 <TextInput 
                     style={styles.input}
                     placeholder="email@example.com"
+                    placeholderTextColor="#000000"
                     keyboardType="email-address"
                 />
 
@@ -47,6 +48,7 @@ export default function LoginScreen() {
                     <TextInput 
                         style={styles.passwordInput}
                         placeholder="*********"
+                         placeholderTextColor="#000000"
                         secureTextEntry={secureText} 
                     />
                     <TouchableOpacity 
@@ -56,7 +58,7 @@ export default function LoginScreen() {
                         <Ionicons
                             name={secureText ? "eye-off-outline" : "eye-outline"}
                             size={20}
-                            color={"#8e8e93"}
+                            color={"#ef0a0ae2"}
                         />
                     </TouchableOpacity>
                 </View>
@@ -76,7 +78,7 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#FFF"
+        backgroundColor: "#000000"
     },
     innerContainer: {
         flex: 1,
@@ -91,26 +93,26 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: "bold",
-        color: "#1c1c1e",
+        color: "#ffffff",
         marginBottom: 30 
     },
     label: {
         alignSelf: "flex-start",
         fontSize: 14,
         fontWeight: '600',
-        color: '#8e8e93',
+        color: '#000000',
         marginBottom: 5,
     },
     input: {
         width: "100%",
         height: 50,
         borderWidth: 1,
-        borderColor: "#e5e5ea",
+        borderColor: "#ffffff",
         borderRadius: 12,
         paddingHorizontal: 15,
         fontSize: 16,
-        color: "#1c1c1e",
-        backgroundColor: "#fbfbfd",
+        color: "#000000",
+        backgroundColor: "#ffffff",
         marginBottom: 15
     },
     passwordContainer: {
@@ -118,9 +120,9 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 50,
         borderWidth: 1,
-        borderColor: "#e5e5ea",
+        borderColor: "#ffffff",
         borderRadius: 12,
-        backgroundColor: "#fbfbfd",
+        backgroundColor: "#ffffff",
         marginBottom: 10,
         overflow: "hidden"
     },
@@ -128,7 +130,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingHorizontal: 15,
         fontSize: 16,
-        color: "#1c1c1e"
+        color: "#000000"
     },
     iconContainer: {
         justifyContent: "center",
@@ -141,11 +143,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 10,
-        backgroundColor: "#007AFF"
+        backgroundColor: "#ffffff"
     },
     buttonText: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: "#FFF"
+        color: "#000000"
     }
 })

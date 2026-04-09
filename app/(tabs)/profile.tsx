@@ -14,15 +14,15 @@ export default function ProfileScreen() {
             <View style={styles.card}>
                 <Image 
                     source={{
-                        uri: "https://avatars.githubusercontent.com/u/106830297?v=4"
+                        uri: "https://avatars.githubusercontent.com/u/161538925?v=4"
                     }}
                     style={styles.profileImage}
                 />
 
-                <Text style={styles.textName}>João Grande</Text>
+                <Text style={styles.textName}>João Cintra</Text>
 
                 <Text style={styles.textBio}>
-                    Eu gosto de react native
+                    Talvez
                 </Text>
 
                 <TouchableOpacity 
@@ -39,14 +39,14 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#f0f0f0",
+        backgroundColor: "#000000",
         justifyContent: "center",
         alignItems: "center",
         padding: 20
     },
     botaoSair: {
         marginTop: 20,
-        backgroundColor: "#FF5A5F",
+        backgroundColor: "#f9262d",
         paddingVertical: 12,
         paddingHorizontal: 30,
         borderRadius: 25,
@@ -59,13 +59,13 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     card: {
-        backgroundColor: "#FFFFFF",
+        backgroundColor: "#ffffffed",
         padding: 30,
         borderRadius: 15,
         alignItems: "center",
 
         //Sombras
-        shadowColor: "#000",
+        shadowColor: "#000000",
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
         shadowRadius: 5,
@@ -77,13 +77,13 @@ const styles = StyleSheet.create({
     textName: {
         fontSize: 24,
         fontWeight: "bold",
-        color: "#333",
+        color: "#000000",
         marginBottom: 10
     },
     textBio: {
         fontSize: 16,
         textAlign: "center",
-        color: "#666",
+        color: "#000000",
         lineHeight: 22
     }
 });
