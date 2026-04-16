@@ -25,5 +25,21 @@ export const DADOS_EVENTOS: Event[] = [
     preco: 'Variado',
     imagem: 'https://latinoware.org/wp-content/uploads/2026/03/BK9A8973-scaled-1.jpg',
   },
+  {
+    id: '4',
+    titulo: 'Juventude Digital',
+    data: '16 e 17 de Outubro • 9:00',
+    local: ' Centro de Eventos - Fortaleza (CE)',
+    preco: 'R$ 100,00',
+    imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuRxdA2kgM6SxKSPAS128qoWylT8Cbs-mVIw&s',
+  },
+  {
+    id: '5',
+    titulo: 'Dev Game show',
+    data: '20 de Dezembro • 8:00',
+    local: ' Exposiçao  - Umuarama (PR)',
+    preco: 'R$ 50,00',
+    imagem: 'https://www.laranjacast.com.br/wp-content/uploads/2026/02/sss-1-1024x576.jpg',
+  },
 ];
 

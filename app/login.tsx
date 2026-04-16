@@ -1,78 +1,90 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { Alert, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import {
+    Alert,
+    KeyboardAvoidingView,
+    Platform,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View
+} from "react-native";
 
 export default function LoginScreen() {
     const router = useRouter();
-
     const [secureText, setSecureText] = useState(true);
 
     function trocarEstadoSenha() {
-        if (secureText === true) {
-            setSecureText(false);
-        }else {
-            setSecureText(true);
-        }
+        setSecureText(prev => !prev);
     }
 
     function logar() {
-        router.replace("/(tabs)/home")
+        Alert.alert("Login", "Entrando...");
+        router.replace("/(tabs)/home");
     }
 
     return (
         <KeyboardAvoidingView
-            behavior={Platform.OS === "ios" ? 'padding' : 'height'}
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.container}
         >
             <View style={styles.innerContainer}>
-                <Ionicons 
-                    name="apps-outline" 
-                    size={64} 
-                    color={"#ffffff"}
-                    style={styles.logo} 
+
+                <Ionicons
+                    name="apps-outline"
+                    size={64}
+                    color="#ffffff"
+                    style={styles.logo}
                 />
+
                 <Text style={styles.title}>Acesse sua conta</Text>
 
+                {/* EMAIL */}
                 <Text style={styles.label}>E-mail</Text>
-                <TextInput 
+                <TextInput
                     style={styles.input}
                     placeholder="email@example.com"
-                    placeholderTextColor="#000000"
+                    placeholderTextColor="#999999"
                     keyboardType="email-address"
                 />
 
+                {/* SENHA */}
                 <Text style={styles.label}>Senha</Text>
+
                 <View style={styles.passwordContainer}>
-                    <TextInput 
+                    <TextInput
                         style={styles.passwordInput}
                         placeholder="*********"
-                         placeholderTextColor="#000000"
-                        secureTextEntry={secureText} 
+                        placeholderTextColor="#999999"
+                        secureTextEntry={secureText}
                     />
-                    <TouchableOpacity 
+
+                    <TouchableOpacity
                         onPress={trocarEstadoSenha}
                         style={styles.iconContainer}
                     >
                         <Ionicons
                             name={secureText ? "eye-off-outline" : "eye-outline"}
                             size={20}
-                            color={"#ef0a0ae2"}
+                            color="#ef0a0a"
                         />
                     </TouchableOpacity>
                 </View>
 
+                {/* BOTÃO */}
                 <TouchableOpacity
                     style={styles.button}
                     onPress={logar}
+                    activeOpacity={0.7}
                 >
                     <Text style={styles.buttonText}>Entrar</Text>
                 </TouchableOpacity>
 
             </View>
         </KeyboardAvoidingView>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
@@ -94,14 +106,14 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: "bold",
         color: "#ffffff",
-        marginBottom: 30 
+        marginBottom: 30
     },
     label: {
         alignSelf: "flex-start",
         fontSize: 14,
-        fontWeight: '600',
-        color: '#000000',
-        marginBottom: 5,
+        fontWeight: "600",
+        color: "#ffffff",
+        marginBottom: 5
     },
     input: {
         width: "100%",
@@ -123,7 +135,7 @@ const styles = StyleSheet.create({
         borderColor: "#ffffff",
         borderRadius: 12,
         backgroundColor: "#ffffff",
-        marginBottom: 10,
+        marginBottom: 15,
         overflow: "hidden"
     },
     passwordInput: {
@@ -140,14 +152,14 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 50,
         borderRadius: 12,
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: "center",
+        alignItems: "center",
         marginTop: 10,
         backgroundColor: "#ffffff"
     },
     buttonText: {
         fontSize: 16,
-        fontWeight: 'bold',
+        fontWeight: "bold",
         color: "#000000"
     }
-})
+});
