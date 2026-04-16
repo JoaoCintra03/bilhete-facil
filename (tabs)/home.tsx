@@ -44,7 +44,6 @@ const renderizarEvento = ({ item }: RenderizarEventoProps) => (
 export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      {/* Cabeçalho */}
       <View style={styles.header}>
         <Text style={styles.headerTitulo}>Descubra Eventos</Text>
         <TextInput
@@ -54,13 +53,13 @@ export default function HomeScreen() {
         />
       </View>
 
-      {/* Lista de Eventos */}
+
       <FlatList
-        data={DADOS_EVENTOS} // O array de dados
-        keyExtractor={(item) => item.id} // Como o React identifica cada item unicamente
-        renderItem={renderizarEvento} // O componente que será desenhado para cada item
-        contentContainerStyle={styles.listaContainer} // Estilo do container da lista
-        showsVerticalScrollIndicator={false} // Esconde a barra de rolagem nativa
+        data={DADOS_EVENTOS} 
+        keyExtractor={(item) => item.id}
+        renderItem={renderizarEvento}
+        contentContainerStyle={styles.listaContainer}
+        showsVerticalScrollIndicator={false} 
       />
     </SafeAreaView>
   );
@@ -99,9 +98,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#000000",
     borderRadius: 12,
     marginBottom: 20,
-    overflow: "hidden", // Garante que a imagem não "vaze" pelos cantos arredondados
-    elevation: 3, // Sombra no Android
-    shadowColor: "#000", // Sombras no iOS
+    overflow: "hidden",
+    elevation: 3,
+    shadowColor: "#000", 
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -132,9 +131,9 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   rodapeCard: {
-    flexDirection: "row", // Alinha preço e botão lado a lado
-    justifyContent: "space-between", // Joga um para cada ponta
-    alignItems: "center", // Centraliza verticalmente
+    flexDirection: "row", 
+    justifyContent: "space-between", 
+    alignItems: "center", 
     
   },
   botoesContainer: {

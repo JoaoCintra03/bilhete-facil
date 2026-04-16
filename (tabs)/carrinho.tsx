@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, GestureResponderEvent } from "react-native";
 import { DADOS_EVENTOS } from "../../mocks/event";
 import { FontAwesome } from "@expo/vector-icons";
+import { router } from "expo-router";
 
 export default function Carrinho() {
 
@@ -14,10 +15,15 @@ export default function Carrinho() {
       .replace(",", ".")
   );
 
+
   if (isNaN(numero)) return acc;
 
   return acc + numero;
 }, 0);
+  function listar() {
+        router.replace("/(tabs)/bilhete")
+    }
+
   return (
     <View style={styles.container}>
 
@@ -29,7 +35,7 @@ export default function Carrinho() {
      
       <FlatList
         data={itensCarrinho}
-        keyExtractor={(item: { id: any; }) => item.id}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.card}>
 
@@ -59,7 +65,9 @@ export default function Carrinho() {
       </Text>
 
       
-      <TouchableOpacity style={styles.botao}>
+      <TouchableOpacity style={styles.botao}
+           onPress={listar}
+                       >
         <Text style={styles.botaoTexto}>Finalizar Compra</Text>
       </TouchableOpacity>
 

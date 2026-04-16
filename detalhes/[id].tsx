@@ -8,6 +8,10 @@ export default function Details() {
 
   const evento = DADOS_EVENTOS.find(evento => evento.id === id);
 
+  function comprar() {
+        router.replace("/(tabs)/carrinho")
+    }
+
   return (
     <>
       
@@ -58,7 +62,11 @@ export default function Details() {
         </ScrollView>
 
         
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity
+           style={styles.botao}
+           onPress={comprar}
+                       >
+          
           <Text style={styles.botaoTexto}>Garantir Ingresso</Text>
         </TouchableOpacity>
       </View>
