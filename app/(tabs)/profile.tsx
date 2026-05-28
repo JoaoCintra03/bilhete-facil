@@ -1,36 +1,37 @@
 import { useRouter } from "expo-router";
-import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Button } from "../../componentes/Button";
 
 export default function ProfileScreen() {
     const router = useRouter();
 
     function onSairPress() {
-        router.push("/login");
+        router.replace("/login");
     }
     
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.card}>
-                <Image 
+                <Image
                     source={{
-                        uri: "https://avatars.githubusercontent.com/u/161538925?v=4"
+                        uri: "https://avatars.githubusercontent.com/u/106830297?v=4"
                     }}
                     style={styles.profileImage}
                 />
 
-                <Text style={styles.textName}>João Cintra</Text>
+                <Text style={styles.textName}>João Grande</Text>
 
                 <Text style={styles.textBio}>
-                    Talvez
+                    Eu gosto de react native
                 </Text>
 
-                <TouchableOpacity 
-                    style={styles.botaoSair}
-                    onPress={onSairPress}
-                >
-                    <Text>Sair</Text>
-                </TouchableOpacity>
+                <Button 
+                    texto="Sair"
+                    icon={false}
+                    role="danger" 
+                    quandoClicar={onSairPress}
+                />
             </View>
         </SafeAreaView>
     );
@@ -39,14 +40,14 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#000000",
+        backgroundColor: "#f0f0f0",
         justifyContent: "center",
         alignItems: "center",
         padding: 20
     },
     botaoSair: {
         marginTop: 20,
-        backgroundColor: "#f9262d",
+        backgroundColor: "#FF5A5F",
         paddingVertical: 12,
         paddingHorizontal: 30,
         borderRadius: 25,
@@ -59,13 +60,13 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     card: {
-        backgroundColor: "#ffffffed",
+        backgroundColor: "#FFFFFF",
         padding: 30,
         borderRadius: 15,
         alignItems: "center",
 
         //Sombras
-        shadowColor: "#000000",
+        shadowColor: "#000",
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
         shadowRadius: 5,
@@ -77,13 +78,13 @@ const styles = StyleSheet.create({
     textName: {
         fontSize: 24,
         fontWeight: "bold",
-        color: "#000000",
+        color: "#333",
         marginBottom: 10
     },
     textBio: {
         fontSize: 16,
         textAlign: "center",
-        color: "#000000",
+        color: "#666",
         lineHeight: 22
     }
 });

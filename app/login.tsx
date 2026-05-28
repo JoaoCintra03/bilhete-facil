@@ -3,9 +3,12 @@ import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Alert, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { logar } from "../services/loginService";
 
 export default function LoginScreen() {
     const router = useRouter();
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
 
     const [secureText, setSecureText] = useState(true);
 
@@ -17,7 +20,23 @@ export default function LoginScreen() {
         }
     }
 
-    function logar() {
+    async function clicouEmlogar() {
+        if(!email) {
+            Alert.alert("Atenção!", "Email é obrigatório.")
+            return;
+        }
+          if (!senha) {
+        Alert.alert("Atenção!", "Senha é obrigatório.")
+            return;
+          }
+        
+          const token = await logar(email, senha);
+           if (!token) {
+        Alert.alert("Falha ao realizar login, tente novamente.")
+            return;
+          }
+
+
         router.replace("/(tabs)/home")
     }
 
@@ -30,7 +49,7 @@ export default function LoginScreen() {
                 <Ionicons 
                     name="apps-outline" 
                     size={64} 
-                    color={"#ffffff"}
+                    color={"#007AFF"}
                     style={styles.logo} 
                 />
                 <Text style={styles.title}>Acesse sua conta</Text>
@@ -39,8 +58,8 @@ export default function LoginScreen() {
                 <TextInput 
                     style={styles.input}
                     placeholder="email@example.com"
-                    placeholderTextColor="#000000"
                     keyboardType="email-address"
+                    onChangeText={setEmail}
                 />
 
                 <Text style={styles.label}>Senha</Text>
@@ -48,8 +67,8 @@ export default function LoginScreen() {
                     <TextInput 
                         style={styles.passwordInput}
                         placeholder="*********"
-                         placeholderTextColor="#000000"
                         secureTextEntry={secureText} 
+                        onChangeText={setSenha}
                     />
                     <TouchableOpacity 
                         onPress={trocarEstadoSenha}
@@ -58,14 +77,14 @@ export default function LoginScreen() {
                         <Ionicons
                             name={secureText ? "eye-off-outline" : "eye-outline"}
                             size={20}
-                            color={"#ef0a0ae2"}
+                            color={"#8e8e93"}
                         />
                     </TouchableOpacity>
                 </View>
 
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={logar}
+                    onPress={clicouEmlogar}
                 >
                     <Text style={styles.buttonText}>Entrar</Text>
                 </TouchableOpacity>
@@ -78,7 +97,7 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#000000"
+        backgroundColor: "#FFF"
     },
     innerContainer: {
         flex: 1,
@@ -93,26 +112,26 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: "bold",
-        color: "#ffffff",
+        color: "#1c1c1e",
         marginBottom: 30 
     },
     label: {
         alignSelf: "flex-start",
         fontSize: 14,
         fontWeight: '600',
-        color: '#000000',
+        color: '#8e8e93',
         marginBottom: 5,
     },
     input: {
         width: "100%",
         height: 50,
         borderWidth: 1,
-        borderColor: "#ffffff",
+        borderColor: "#e5e5ea",
         borderRadius: 12,
         paddingHorizontal: 15,
         fontSize: 16,
-        color: "#000000",
-        backgroundColor: "#ffffff",
+        color: "#1c1c1e",
+        backgroundColor: "#fbfbfd",
         marginBottom: 15
     },
     passwordContainer: {
@@ -120,9 +139,9 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 50,
         borderWidth: 1,
-        borderColor: "#ffffff",
+        borderColor: "#e5e5ea",
         borderRadius: 12,
-        backgroundColor: "#ffffff",
+        backgroundColor: "#fbfbfd",
         marginBottom: 10,
         overflow: "hidden"
     },
@@ -130,7 +149,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingHorizontal: 15,
         fontSize: 16,
-        color: "#000000"
+        color: "#1c1c1e"
     },
     iconContainer: {
         justifyContent: "center",
@@ -143,11 +162,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 10,
-        backgroundColor: "#ffffff"
+        backgroundColor: "#007AFF"
     },
     buttonText: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: "#000000"
+        color: "#FFF"
     }
 })
